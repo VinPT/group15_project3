@@ -20,6 +20,12 @@ body {
 
 }
 
+main  {
+  width:1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 #header{
   width: 100%;
   color: white;
@@ -28,25 +34,6 @@ body {
   font-size: 30px;
 }
 
-.gameBoard{
-/*with:100px;
-height:100px;*/
-background-color: light-gray;
-}
-
-.gameBoard td {
-width: 40px;
-height:40px;
-background-color:blue;
-}
-
-table, th, td {
-   border: 1px solid black;
-}
-
-#MyBoard .ship{
-background-color: orange;
-}
 
 dialog {
     width: 500px;
@@ -62,19 +49,7 @@ dialog {
     right: 50px;
 }
 
-#BoardContainer{
-    padding: 10px 10px 10px 10px;
-    width:1000px;
-    height:500px;
-}
 
-#PlayerBoard{
-    float: left;
-}
-
-#CpuBoard{
-    float: right;
-}
 
 /*
 button {
