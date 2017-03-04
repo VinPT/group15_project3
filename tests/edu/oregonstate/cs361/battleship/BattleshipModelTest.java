@@ -14,9 +14,9 @@ class BattleshipModelTest {
         BattleshipModel model = new BattleshipModel();
         assertEquals("AircraftCarrier",model.getShip("AircraftCarrier").getName());
         assertEquals("Battleship",model.getShip("battleship").getName());
-        assertEquals("Cruiser",model.getShip("Cruiser").getName());
-        assertEquals("Destroyer",model.getShip("Destroyer").getName());
         assertEquals("Submarine",model.getShip("Submarine").getName());
+        assertEquals("Clipper",model.getShip("Clipper").getName());
+        assertEquals("Dingy",model.getShip("Dingy").getName());
         assertNull(model.getShip("SS Minnow"));
     }
 
@@ -46,24 +46,6 @@ class BattleshipModelTest {
                 testIfCovers(model, "Battleship","1","1","vertical",9,9));
 
         assertEquals(true,
-                testIfCovers(model, "Cruiser","1","1","horizontal",1,1));
-        assertEquals(true,
-                testIfCovers(model, "Cruiser","1","1","vertical",1,1));
-        assertEquals(false,
-                testIfCovers(model, "Cruiser","1","1","horizontal",9,9));
-        assertEquals(false,
-                testIfCovers(model, "Cruiser","1","1","vertical",9,9));
-
-        assertEquals(true,
-                testIfCovers(model, "Destroyer","1","1","horizontal",1,1));
-        assertEquals(true,
-                testIfCovers(model, "Destroyer","1","1","vertical",1,1));
-        assertEquals(false,
-                testIfCovers(model, "Destroyer","1","1","horizontal",9,9));
-        assertEquals(false,
-                testIfCovers(model, "Destroyer","1","1","vertical",9,9));
-
-        assertEquals(true,
                 testIfCovers(model, "Submarine","1","1","horizontal",1,1));
         assertEquals(true,
                 testIfCovers(model, "Submarine","1","1","vertical",1,1));
@@ -71,6 +53,24 @@ class BattleshipModelTest {
                 testIfCovers(model, "Submarine","1","1","horizontal",9,9));
         assertEquals(false,
                 testIfCovers(model, "Submarine","1","1","vertical",9,9));
+
+        assertEquals(true,
+                testIfCovers(model, "Clipper","1","1","horizontal",1,1));
+        assertEquals(true,
+                testIfCovers(model, "Clipper","1","1","vertical",1,1));
+        assertEquals(false,
+                testIfCovers(model, "Clipper","1","1","horizontal",9,9));
+        assertEquals(false,
+                testIfCovers(model, "Clipper","1","1","vertical",9,9));
+
+        assertEquals(true,
+                testIfCovers(model, "Dingy","1","1","horizontal",1,1));
+        assertEquals(true,
+                testIfCovers(model, "Dingy","1","1","vertical",1,1));
+        assertEquals(false,
+                testIfCovers(model, "Dingy","1","1","horizontal",9,9));
+        assertEquals(false,
+                testIfCovers(model, "Dingy","1","1","vertical",9,9));
 
         assertNull(model.placeShip("Submarine","1","1","horizontal").getShip("USS Minnow"));
 
@@ -110,9 +110,9 @@ class BattleshipModelTest {
         BattleshipModel model = new BattleshipModel();
         model.placeShip("Aircraftcarrier","1","5","horizontal");
         model.placeShip("Battleship","2","4","horizontal");
-        model.placeShip("Cruiser","3","3","horizontal");
-        model.placeShip("Destroyer","4","2","horizontal");
         model.placeShip("Submarine","5","1","horizontal");
+        model.placeShip("Clipper","6","6","horizontal");
+        model.placeShip("Dingy","7","7","horizontal");
 
         model.playerShot(new Coordinate(9,9));
         assertEquals(true, model.playerHits.isEmpty());
@@ -136,6 +136,14 @@ class BattleshipModelTest {
         model.playerShot(new Coordinate(5,1));
         assertEquals(5, model.playerHits.get(4).getAcross());
         assertEquals(1, model.playerHits.get(4).getDown());
+
+        model.playerShot(new Coordinate(6,6));
+        assertEquals(6, model.playerHits.get(5).getAcross());
+        assertEquals(6, model.playerHits.get(5).getDown());
+
+        model.playerShot(new Coordinate(7,7));
+        assertEquals(7, model.playerHits.get(6).getAcross());
+        assertEquals(7, model.playerHits.get(6).getDown());
     }
 
     @Test
