@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <title>Battle Ship</title>
 
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="css/styleMain.css">
@@ -14,16 +12,15 @@
       <!--this here are the styes that make the bordgame work the way it is supposed to-->
     <link rel="stylesheet" type="text/css" href="css/instructions.css">
       <!--this drives the popup stylings of me instructions-->
+
+    <script src="/js/vendor/jquery-1.12.4.min.js" ></script>
+    <script src="/js/app.js" ></script>
+    <script src="/js/instruct.js"></script>
+
 </head>
 
 
 <body onload="loadOverlay()">
-
-  <script src="/js/vendor/jquery-1.12.4.min.js" ></script>
-  <script src="/js/app.js" ></script>
-  <!--<script src="/js/instruct.js"> </script>-->
-
-
 
 <noscript>
   Errors may occur if javascript is not enabled.
@@ -34,30 +31,7 @@
 </div>
 <main>
 
-  <script type="text/javascript">
-  var checked = false;
-  var cover;
-  var instructions;
 
-  function loadOverlay() {
-      "use strict";
-      document.getElement("instructions").style.display = "block";
-  }
-  function toggleOverlay() {
-      "use strict";
-      cover = document.getElementById("cover");
-      instructions = document.getElementById("instructions");
-
-      cover.style.opacity = 0.5;
-      if (true !== checked) {
-          instructions.style.display = "none";
-          checked = true;
-      } else {
-          instructions.style.display = "block";
-          checked = false;
-      }
-  }
-  </script>
 
   <div id="cover" ></div>
   <div class="instructions" id="instructions">
@@ -417,7 +391,7 @@
   <button id="show" onmousedown="toggleOverlay()">Instructions</button>
 </main>
 </body>
-<!--
+
 <script>
    $('#TheirBoard td').click(function(event) {
    console.log("CLICK EVENT");
@@ -434,5 +408,5 @@
       }
    });
 });
-</script>-->
+</script>
 </html>
