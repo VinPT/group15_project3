@@ -8,6 +8,7 @@ public class Ship {
     private int length;
     private Coordinate start;
     private Coordinate end;
+    protected int hitsCount;
 
     public Ship(String n, int l,Coordinate s, Coordinate e) {
         name = n;
@@ -15,10 +16,7 @@ public class Ship {
         start = s;
         end = e;
     }
-    public Ship(String n, int l) {
-        name = n;
-        length = l;
-    }
+
 
     public void setLocation(Coordinate s, Coordinate e) {
         start = s;
@@ -51,4 +49,34 @@ public class Ship {
         return false;
     }
 
+    public String getName() {
+        return name;
+    }
+
+
+    public boolean scan(Coordinate coor) {
+        if(covers(coor)){
+            return true;
+        }
+        if(covers(new Coordinate(coor.getAcross()-1,coor.getDown()))){
+            return true;
+        }
+        if(covers(new Coordinate(coor.getAcross()+1,coor.getDown()))){
+            return true;
+        }
+        if(covers(new Coordinate(coor.getAcross(),coor.getDown()-1))){
+            return true;
+        }
+        if(covers(new Coordinate(coor.getAcross(),coor.getDown()+1))){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean destroyed() {
+        if(length == hitsCount) {
+            return true;
+        }
+        return false;
+    }
 }
